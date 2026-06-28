@@ -8,6 +8,9 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'CSSS Docs',
+      logo: {
+        src: './src/assets/csss-logo.svg'
+      },
       social: [
         {
           icon: 'github',
