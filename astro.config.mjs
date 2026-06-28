@@ -16,11 +16,8 @@ export default defineConfig({
       ],
       sidebar: [
         {
-          label: 'General',
-          items: [
-            // Each item here is one entry in the navigation menu.
-            { label: 'Contributing Documentation', slug: 'guides/docs-guide' }
-          ]
+          label: 'Guides',
+          items: [{ label: 'Contributing Documentation', slug: 'guides/docs-guide' }]
         },
         {
           label: 'Event Guides',

@@ -1,0 +1,124 @@
+---
+title: Contributing Documentation
+description: How to write documents for this site.
+---
+import { GITHUB_REPO_URL } from '@constants';
+
+Create a markdown file in `src/content/docs/<section>/<document>.mdx`.
+
+It must have the following at the top of the file (also called the **frontmatter**):
+```markdown
+---
+title: <your title here>
+---
+
+<...your content...>
+```
+
+Don't forget to add the `title` field or your page will not work properly.
+
+## Markdown Syntax
+Since all you're writing is Markdown you have access to different styles on your text, such as
+* headings 1-6 using `#`, where the heading equals the number of hashes used
+:::note
+Headings 2-3 will automatically be a part of the table of contents at the top right, but headings 1 and 4-6 will not.
+:::
+* **\*\*bold\*\***
+* __\_\_italic\_\___
+* ~~\~\~strikethrough\~\~~~
+* \``inline code`\`
+* unordered lists with either \* or \-
+* ordered lists using `1.`, `2.`, etc.
+    * sublists are created by indenting a line by four spaces
+* links
+```
+[<link label>](<link URL>)
+```
+* images
+```
+![<alt text>](<image URL>)
+```
+* and code blocks
+```md
+Use triple backticks (`) before and after your content.
+After the first three backticks you can add the language for syntax highlighting.
+```
+
+## Starlight
+Astro Starlight (the framework used to generate this) also provides other ways to style your docs.
+
+### Asides
+You can use **asides** to make content stand out.
+Surround your content with triple colons (:::). After the first set of colons add `note`, `tip`, `caution`, or `danger`.
+
+```markdown
+The following will generate a note aside.
+:::note
+This is a note aside.
+:::
+```
+
+:::note
+This is a note aside.
+:::
+
+:::tip
+This is a tip aside.
+:::
+
+:::caution
+This is a caution aside.
+:::
+
+:::danger
+This is a danger aside.
+:::
+
+### Custom Titles and Icons
+To add a title, add some text between square brackets right after the aside type.
+```markdown
+:::tip[Custom Title]
+Custom title aside
+:::
+```
+:::tip[Custom Title]
+Custom title aside
+:::
+
+There are also [built-in icons](https://starlight.astro.build/reference/icons/#all-icons) that Starlight allows you to change the icon used in the aside.
+
+```markdown
+:::danger{icon="close"}
+Custom icon
+:::
+```
+:::danger{icon="close"}
+Custom icon
+:::
+
+You can combine these to add a custom title and icon.
+
+```markdown
+:::note[Custom Title]{icon="approve-check"}
+Custom title and icon
+:::
+```
+:::note[Custom Title]{icon="approve-check"}
+Custom title and icon
+:::
+
+### Custom Components
+There are [built-in components](https://starlight.astro.build/components/using-components/) that Starlight ships with.
+They are straight-forward to use, but remember that your file must be `.mdx` to use these components.
+We currently do **NOT** support Markdoc, so ignore those sections.
+
+If there is something you want to implement, but don't know how contact the Webmaster.
+
+## Submitting Your Document
+Once you have created your document open a pull request to the <a href={GITHUB_REPO_URL}>csss-site-docs</a> repo.
+
+## References
+
+[Astro Starlight markdown reference](https://starlight.astro.build/guides/authoring-content/)
+
+[Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet/)
