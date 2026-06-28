@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import { APPOINTED_REPS, ELECTED_REPS, EXECUTIVES, makeSidebarItems } from './src/constants.ts';
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,14 +16,20 @@ export default defineConfig({
         }
       ],
       sidebar: [
+        // {
+        //   label: 'Guides',
+        //   items: [{ label: 'Contributing Documentation', slug: 'guides/docs-guide' }]
+        // },
         {
-          label: 'Guides',
-          items: [{ label: 'Contributing Documentation', slug: 'guides/docs-guide' }]
+          slug: 'guides/docs-guide'
         },
         {
-          label: 'Event Guides',
-          items: [{ autogenerate: { directory: 'reference' } }]
-        }
+          label: 'Events',
+          items: [{ autogenerate: { directory: 'events' } }]
+        },
+        makeSidebarItems('Executives', EXECUTIVES),
+        makeSidebarItems('Elected Reps', ELECTED_REPS),
+        makeSidebarItems('Appointed Reps', APPOINTED_REPS)
       ]
     })
   ]
