@@ -10,17 +10,9 @@ const LINKED_GROUP_SEPARATOR = ' > ';
 const linkedSidebarGroupHrefs = new Map<string, string>();
 
 const sidebarConfig = [
-  {
-    label: 'Contributing',
-    items: [{ autogenerate: { directory: 'guides' } }]
-  },
-  // {
-  //   slug: 'guides/docs-guide'
-  // },
-  // {
-  //   label: 'Events',
-  //   items: [{ autogenerate: { directory: 'events' } }]
-  // },
+  makeSidebarItems('Executives', EXECUTIVES),
+  makeSidebarItems('Elected Reps', ELECTED_REPS),
+  makeSidebarItems('Appointed Reps', APPOINTED_REPS),
   {
     label: 'Events',
     items: [
@@ -36,9 +28,10 @@ const sidebarConfig = [
       }
     ]
   },
-  makeSidebarItems('Executives', EXECUTIVES),
-  makeSidebarItems('Elected Reps', ELECTED_REPS),
-  makeSidebarItems('Appointed Reps', APPOINTED_REPS)
+  {
+    label: 'Contributing',
+    items: [{ autogenerate: { directory: 'guides' } }]
+  }
 ] satisfies SidebarItem[];
 
 function slugToHref(slug: string) {
