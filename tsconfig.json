@@ -5,6 +5,9 @@
     "paths": {
       "@constants": [
         "src/constants.ts"
+      ],
+      "@utils": [
+        "src/utils.ts"
       ]
     }
   },

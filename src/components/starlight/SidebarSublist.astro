@@ -3,6 +3,7 @@ import type { StarlightRouteData } from '@astrojs/starlight/route-data';
 import { Badge, Icon } from '@astrojs/starlight/components';
 import SidebarRestorePoint from '@astrojs/starlight/components/SidebarRestorePoint.astro';
 import { getLinkedSidebarGroupHref } from '../../sidebar';
+import { normalizePathname, titleCaseKebabLabel } from '@utils';
 
 type SidebarEntry = StarlightRouteData['sidebar'][number];
 type SidebarLink = Extract<SidebarEntry, { type: 'link' }>;
@@ -23,13 +24,6 @@ interface Props {
 
 const { sublist, nested, path = [] } = Astro.props;
 
-const normalizePathname = (pathname: string) =>
-  pathname.endsWith('/') ? pathname : `${pathname}/`;
-const titleCaseKebabLabel = (label: string) =>
-  label
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
 const hasCurrentEntry = (entries: SidebarEntry[]): boolean =>
   entries.some(entry => (entry.type === 'link' ? entry.isCurrent : hasCurrentEntry(entry.entries)));
 const currentPathname = normalizePathname(Astro.url.pathname);

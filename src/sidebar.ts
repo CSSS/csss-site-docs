@@ -1,11 +1,8 @@
 import { sidebarConfig, type SidebarItem } from './sidebar.config';
+import { slugToHref } from './utils';
 
 const LINKED_GROUP_SEPARATOR = ' > ';
 const linkedSidebarGroupHrefs = new Map<string, string>();
-
-function slugToHref(slug: string) {
-  return `/${slug.replace(/^\/+|\/+$/g, '')}/`;
-}
 
 function groupKey(path: string[]) {
   return path.join(LINKED_GROUP_SEPARATOR);
