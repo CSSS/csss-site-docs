@@ -1,38 +1,7 @@
-import { APPOINTED_REPS, ELECTED_REPS, EXECUTIVES, makeSidebarItems } from './constants';
-
-type SidebarItem = Record<string, unknown> & {
-  label?: string;
-  slug?: string;
-  items?: SidebarItem[];
-};
+import { sidebarConfig, type SidebarItem } from './sidebar.config';
 
 const LINKED_GROUP_SEPARATOR = ' > ';
 const linkedSidebarGroupHrefs = new Map<string, string>();
-
-const sidebarConfig = [
-  makeSidebarItems('Executives', EXECUTIVES),
-  makeSidebarItems('Elected Reps', ELECTED_REPS),
-  makeSidebarItems('Appointed Reps', APPOINTED_REPS),
-  {
-    label: 'Events',
-    items: [
-      {
-        label: 'Frosh Week',
-        items: [
-          {
-            label: 'Grant',
-            slug: 'events/frosh-week/frosh',
-            items: [{ autogenerate: { directory: 'executives' } }]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    label: 'Contributing',
-    items: [{ autogenerate: { directory: 'guides' } }]
-  }
-] satisfies SidebarItem[];
 
 function slugToHref(slug: string) {
   return `/${slug.replace(/^\/+|\/+$/g, '')}/`;
