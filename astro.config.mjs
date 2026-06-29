@@ -21,7 +21,9 @@ export default defineConfig({
           href: 'https://github.com/CSSS/csss-site-docs'
         }
       ],
-      sidebar
+      // @ts-ignore
+      sidebar,
+      customCss: ['./src/styles/global.css']
     })
   ]
 });
