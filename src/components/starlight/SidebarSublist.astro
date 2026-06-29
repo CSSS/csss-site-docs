@@ -31,7 +31,7 @@ const currentPathname = normalizePathname(Astro.url.pathname);
           <a
             href={entry.href}
             aria-current={entry.isCurrent ? 'page' : undefined}
-            class:list={[{ large: !nested }, entry.attrs.class]}
+            class:list={entry.attrs.class}
             {...entry.attrs}
           >
             <span>{entry.label}</span>

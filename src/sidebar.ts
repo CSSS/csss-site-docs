@@ -10,19 +10,19 @@ const LINKED_GROUP_SEPARATOR = ' > ';
 const linkedSidebarGroupHrefs = new Map<string, string>();
 
 const sidebarConfig = [
-  // {
-  //   label: 'Guides',
-  //   items: [{ label: 'Contributing Documentation', slug: 'guides/docs-guide' }]
-  // },
   {
-    slug: 'guides/docs-guide'
+    label: 'Contributing',
+    items: [{ autogenerate: { directory: 'guides' } }]
   },
+  // {
+  //   slug: 'guides/docs-guide'
+  // },
   // {
   //   label: 'Events',
   //   items: [{ autogenerate: { directory: 'events' } }]
   // },
   {
-    label: 'Test',
+    label: 'Events',
     items: [
       {
         label: 'Frosh Week',
@@ -30,12 +30,7 @@ const sidebarConfig = [
           {
             label: 'Grant',
             slug: 'events/frosh-week/frosh',
-            items: [
-              {
-                label: 'Requirements',
-                slug: 'events/frosh-week/frosh2'
-              }
-            ]
+            items: [{ autogenerate: { directory: 'executives' } }]
           }
         ]
       }

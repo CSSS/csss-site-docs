@@ -23,6 +23,8 @@ export default defineConfig({
       ],
       // @ts-ignore
       sidebar,
+      pagination: false,
+      lastUpdated: true,
       customCss: ['./src/styles/global.css']
     })
   ]
