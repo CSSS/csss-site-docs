@@ -1,0 +1,31 @@
+---
+title: Submitting Content
+description: How to submit the content you have written.
+sidebar:
+    order: 2
+---
+import { GITHUB_REPO_URL } from '@constants';
+
+Once you have written your content, follow these steps to have it published on the site:
+1. Proofread your article
+2. Create a branch based off `master` containing your commits
+3. Push this branch to the repo and open a pull request (PR)
+4. Assign reviewers and wait for change requests or approvals
+5. Once approved, someone will merge it in
+
+## Opening a Pull Request
+Once you have created your document open a pull request to the <a href={GITHUB_REPO_URL}>csss-site-docs</a> repo, targeting `master`.
+
+Make sure to summarize the changes you've made to the PR description. It may be used as the final commit message.
+
+Make sure to assign reviewers so that people are aware something needs to be added.
+* Add the Webmaster to the review so they can merge it when it's ready
+* If you are just adding a new article or editing an existing one, ask for a review from someone that has up-to-date knowledge of the content you are writing about.
+    * Always add the Webmaster or System Administrator so one of them can merge the PR and delete the branch
+    * For **officer positions**, ask the current officer for a review
+    * For **events**, ask the organizers of the event to review it
+    * For everything else, use your judgement on who should review it
+
+## Reviewers
+
+Once your changes have been approved someone will squash it in `master`, most likely the Webmaster or the System Administrator.

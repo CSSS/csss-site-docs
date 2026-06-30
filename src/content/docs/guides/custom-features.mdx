@@ -1,0 +1,30 @@
+---
+title: Custom Features
+description: Modifications from baseline Astro Starlight.
+---
+
+import { FileTree } from '@astrojs/starlight/components';
+
+Some custom features were added to the standard framework. These will need to be maintained by the W3 Committee.
+
+## Sidebar
+There is a custom sidebar at [`src/sidebar.ts`](https://github.com/CSSS/csss-site-docs/blob/master/src/sidebar.ts) that has a couple of extra features over the Starlight sidebar.
+
+* To add items to the sidebar, modify `src/sidebar.config.ts`.
+* You can assign both a `slug` and an `items` field to create article links that also have indented children. These will be referred to as **Hybrid Sidebar Items**.
+The `slug` value indicates the article that should be referenced.
+The `items` value is an array of the articles that should appear underneath the parent article.
+
+### Autogenerate
+The way autogeneration works has been slightly modified.
+
+* Directories and files will be changed from `kebab-case` to `Title Case` e.g. `hello-world` to `Hello World`.
+* If a directory contains a Markdown file and directory with the exact same file name (minus the extension) that will create a Hybrid Sidebar Item
+    * e.g., the following structure will produce a `Frosh` hybrid sidebar item, with `Grant` and `Presentation` as its children
+    <FileTree>
+    - events/
+        - frosh/
+            - grant.mdx
+            - presentation.mdx
+        - frosh.mdx
+     </FileTree>

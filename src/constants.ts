@@ -28,9 +28,7 @@ export function makeSidebarItems(label: string, items: string[]) {
 
   return {
     label,
-    collapsed: true,
     items: items.map(item => ({
-      label: item,
       slug: `${directory}/${kebabCase(item)}`
     }))
   };

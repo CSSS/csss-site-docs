@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import { APPOINTED_REPS, ELECTED_REPS, EXECUTIVES, makeSidebarItems } from './src/constants.ts';
+import { sidebar } from './src/sidebar.ts';
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,6 +11,9 @@ export default defineConfig({
       logo: {
         src: './src/assets/csss-logo.svg'
       },
+      components: {
+        Sidebar: './src/components/starlight/Sidebar.astro'
+      },
       social: [
         {
           icon: 'github',
@@ -18,22 +21,11 @@ export default defineConfig({
           href: 'https://github.com/CSSS/csss-site-docs'
         }
       ],
-      sidebar: [
-        // {
-        //   label: 'Guides',
-        //   items: [{ label: 'Contributing Documentation', slug: 'guides/docs-guide' }]
-        // },
-        {
-          slug: 'guides/docs-guide'
-        },
-        {
-          label: 'Events',
-          items: [{ autogenerate: { directory: 'events' } }]
-        },
-        makeSidebarItems('Executives', EXECUTIVES),
-        makeSidebarItems('Elected Reps', ELECTED_REPS),
-        makeSidebarItems('Appointed Reps', APPOINTED_REPS)
-      ]
+      // @ts-ignore
+      sidebar,
+      pagination: false,
+      lastUpdated: true,
+      customCss: ['./src/styles/global.css']
     })
   ]
 });
