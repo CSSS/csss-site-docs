@@ -18,7 +18,7 @@ export default defineConfig({
         {
           icon: 'github',
           label: 'GitHub',
-          href: 'https://github.com/CSSS/csss-site-docs'
+          href: 'https://docs.sfucsss.org'
         }
       ],
       // @ts-ignore
