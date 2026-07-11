@@ -20,6 +20,9 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
+        with:
+          # Starlight derives each page's "Last updated" date from its Git history.
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v6
